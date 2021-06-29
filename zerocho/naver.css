@@ -1,0 +1,89 @@
+* { /* *선택자-모든태그*/
+    /*content랑 padding,border 더하는 수고로움X*/
+    box-sizing: border-box;
+}
+
+/*castcading*/
+/*selector선택자 - html 태그를 선택하는 넘*/
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
+#header-center{ /*header-center인넘에 해당되는 css*/
+    margin:0 auto; 
+    width:1080px; ;
+}
+
+/*자손선택: div #header-serach h1 
+  자식선택: div #header-search > h1  */
+
+#header-search span{
+    display:none;
+}
+#header-search h1{ /*이미지스프라이트*/
+    width: 198px;
+    height: 48px;
+    display:inline-block;
+    background-image: url(./naver_logo.png) ;
+    background-position: -4px -4px; /*위치조정 음수 음수 왼쪽 위쪽*/
+    background-repeat: no-repeat;
+    /*== background: url(./sp_search.png) -4px -4px no-repeat;*/
+    vertical-align: middle;
+
+}
+
+#header-search a {
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#header-search h2 {
+    display:none;
+}
+
+#header-search fieldset {
+    margin-left: 20px;
+    /*padding-top: 12px;*/
+    /*padding-bottom: 12px;*/
+    /*padding-left: 10px;*/
+    /*padding-right: 0;*/
+    padding: 12px 0 12px 10px; /*위부터 시계방향*/
+    width: 521px;
+    height: 49px;
+    display: inline-block;
+    border: 2px solid #03cf5d; /*hex표기법*/
+    vertical-align: middle;
+    position: relative;
+}
+
+#header-search fieldset input{
+    border: none;
+    padding: 0;
+    outline: none;
+}
+
+#header-search fieldset button {
+    width: 49px;
+    height: 49px;
+    border: none;
+    padding: 0;
+    background: #03cf5d;
+    right: -2px;
+    top: -2px;
+}
+
+#search-image{
+    background-image: url(./naver_logo.png);    
+    background-position: -3px -60px;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    margin: 14px;
+}
