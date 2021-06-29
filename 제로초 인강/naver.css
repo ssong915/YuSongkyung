@@ -3,8 +3,31 @@
     box-sizing: border-box;
 }
 
+html,body{
+    margin:0;
+    padding:0;
+}
+
 /*castcading*/
 /*selector선택자 - html 태그를 선택하는 넘*/
+/*position
+0) static
+
+1) relative: static 기준
+    position: relative;
+    top: -6px;
+    -->양수면 안쪽으로, 음수면 바깥으로
+
+2) absolute: 화면기준, 
+    부모노드 기준으로 하고 싶으면 부모가 static이면 안돼
+    position: absolute; 
+    right: -2px;
+    top: -2px;
+
+3) fixed: 무조건 화면기준
+
+4) transform
+*/
 
 .blind {
     position: absolute;
@@ -15,36 +38,37 @@
     height: 1px;
 }
 
-#header-center{ /*header-center인넘에 해당되는 css*/
-    margin:0 auto; 
-    width:1080px; ;
-}
-
 /*자손선택: div #header-serach h1 
   자식선택: div #header-search > h1  */
-
-#header-search span{
-    display:none;
-}
-#header-search h1{ /*이미지스프라이트*/
-    width: 198px;
-    height: 48px;
-    display:inline-block;
-    background-image: url(./naver_logo.png) ;
-    background-position: -4px -4px; /*위치조정 음수 음수 왼쪽 위쪽*/
-    background-repeat: no-repeat;
-    /*== background: url(./sp_search.png) -4px -4px no-repeat;*/
-    vertical-align: middle;
-
+#header-center {
+    margin: 0 auto;
+    width: 1080px;
 }
 
 #header-search a {
     text-decoration: none;
+}
+
+#header-search h1 {
+    width: 198px;
+    height: 48px;
+    display: inline-block;
+    /*background-image: url(./sp_search.png);*/
+    /*background-position: -4px -10px;*/
+    /*background-repeat: no-repeat;*/
+    background: url(./naver_logo.png) -4px -4px no-repeat; /*위치조정 음수 음수 왼쪽 위쪽*/
     vertical-align: middle;
+    position: relative;
+    top: -6px;
+    /*양수면 안쪽으로, 음수면 바깥으로*/
+}
+
+#header-search h1 span {
+    display: none;
 }
 
 #header-search h2 {
-    display:none;
+    display: none;
 }
 
 #header-search fieldset {
@@ -53,7 +77,7 @@
     /*padding-bottom: 12px;*/
     /*padding-left: 10px;*/
     /*padding-right: 0;*/
-    padding: 12px 0 12px 10px; /*위부터 시계방향*/
+    padding: 12px 0 12px 10px;
     width: 521px;
     height: 49px;
     display: inline-block;
@@ -62,10 +86,13 @@
     position: relative;
 }
 
-#header-search fieldset input{
+#header-search fieldset input {
     border: none;
     padding: 0;
     outline: none;
+    vertical-align: top;
+    width: 405px;
+    height: 23px;
 }
 
 #header-search fieldset button {
@@ -74,12 +101,13 @@
     border: none;
     padding: 0;
     background: #03cf5d;
+    position: absolute; 
     right: -2px;
     top: -2px;
 }
 
-#search-image{
-    background-image: url(./naver_logo.png);    
+#search-image {
+    background-image: url(./naver_logo.png);
     background-position: -3px -60px;
     background-repeat: no-repeat;
     width: 21px;
