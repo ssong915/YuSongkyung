@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github</title>    
+    <style>      
+        
+        .relative {
+            position: relative;
+        }
+
+        .center-align {
+            /*공통된건 class사용*/
+            width: 1080px;
+            margin: 0 auto;
+        }
+        .blind {
+            position: absolute;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+        }
+    </style>
+    <link rel="stylesheet" href="github.css">
+</head>
+<body bgcolor=#192538>    
+    <header></header>
+    <nav>
+        <div class="center-align relative">
+        <a href="https://www.github.com">
+            <img src="./github_icon.png" style="float:left; width: 40px; height: 40px; margin: 18px 0 0 0;"></img>
+        </a>
+        
+        <div id="nav-left">         
+            <ul id="nav-menu">
+                <li><a href="">Why GitHub?</a></li>
+                <li><a href="">Team</a></li>
+                <li><a href="">Enterprise</a></li>
+                <li><a href="">Explore</a></li>
+                <li><a href="">Marketplace</a></li>            
+                <li><a href="">Pricing</a></li>                     
+            </ul>
+        </div>
+
+        <div id="nav-sign">                          
+            <input id="search" type="text" placeholder="Search GitHub">
+            <button id="search-button" type="submit">🔎</button>
+            <ul>
+                <li><a href="https://github.com/login" id=signin>Sign in</a></li>         
+                <li><a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home" id=signup-border>Sign up</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="center-align relative">        
+        <div id="main-left">
+            <div style="font-weight:500;font-size:40px;color: white;">
+            Built for <br>
+            developers
+            </div>
+            <p style="font-weight:100;font-size:15px;color: lightslategray;">
+            Github is a development platform inspired by the <br>
+            way you work. Form <span style="color:white">open sourece</span> to <span style="color:white">business</span>, you
+            <br>
+            can host and reivew code, manage projects, and <br />
+            build software alongside 50 million developers.
+            </p></div>
+        <div id="main-login">
+            <div id="login-wrapper">
+                <ul id="login-signup">
+                    <li id="login-item">Username</li>                     
+                    <input id="login-block" type="text">  
+
+                    <li id="login-item">Email</li>  
+                    <input id="login-block" type="text"> 
+                                
+                    <li id="login-item">Password</li>                
+                    <input id="login-block" type="text" >    
+
+                    <p style="font-size: small;">
+                    Make sure it's at least 15 character OR at least 8 characters including a number and a lowercase letter.
+                    <a href="#" style="text-decoration: none">Learn more.</a>
+                    </p>
+                </ul>
+            </div>
+            
+            <div id="login-submit">
+                    <button id="green-button" type="submit">Sign up for GitHub</button>
+                    <p style="font-size: small;">                    
+                    By clicking "Sign up for GitHub", you agree to our
+                    <a href="#" style="text-decoration: none">Terms of Service</a> and <a href="#" style="text-decoration: none">Privacy Statement</a>.
+                    We'll occasionally send you account related emails.
+                    </p>
+            </div>
+            
+        </div>
+        </div>
+    </main>
+    <footer>
+        <img src="./footer.png" style="float:inline-end; width: 100%; "></img>
+    </footer>
+</body>
+</html>

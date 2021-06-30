@@ -54,7 +54,7 @@ header {
     /*background-image: url(./sp_search.png);*/
     /*background-position: -4px -10px;*/
     /*background-repeat: no-repeat;*/
-    background: url(./naver_logo.png) -4px -4px no-repeat;
+    background: url(./naver_logo.png)  no-repeat;
     /*위치조정 음수 음수 왼쪽 위쪽*/
     vertical-align: middle;
     position: relative;

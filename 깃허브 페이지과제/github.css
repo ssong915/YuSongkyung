@@ -1,0 +1,139 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  display: inline-block;
+  margin: 0;
+  padding: 16px 0 20px 4px;
+  list-style: none;
+}
+
+#nav-left {
+  float: left;
+}
+
+#nav-left li {
+  display: inline-block;
+  list-style: none;
+  padding: 10px;
+}
+
+#nav-left a {
+  color: white;
+  text-decoration: none;
+}
+
+#nav-sign {
+  float: right;
+}
+
+#nav-sign li {
+  display: inline-block;
+  list-style: none;
+  padding: 5px;
+}
+
+#nav-sign li :hover {
+  color: skyblue;
+}
+
+#nav-sign a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+#signup-border {
+  padding: 4px;
+  border: 1px solid white;
+  border-radius: 10%;
+}
+
+#search {
+  height: 30px;
+  width: 200px;
+  background-color: lightslategray;
+  border: none;
+  border-radius: 4px;
+}
+::placeholder {
+  padding-left: 4px;
+  color: azure;
+}
+
+#search-button {
+  margin: 0;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  background-color: lightslategray;
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+#main-left {
+  float: left;
+  width: 400px;
+  height: 450px;
+  margin-top: 70px;
+  margin-right: 30px;
+  margin-left: 180px;
+  margin-bottom: 8px;
+}
+
+#main-login {
+  vertical-align: middle;
+  float: left;
+  border-radius: 2%;
+  width: 400px;
+  height: 450px;
+  vertical-align: top;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+#main-login ul {
+  list-style: none;
+  padding: 0;
+}
+
+#main-login li {
+  padding: 3px;
+}
+
+#login-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#login-item {
+  font-weight: 160;
+  font-size: 12px;
+}
+#login-block {
+  height: 30px;
+  width: 340px;
+  color: white;
+  border: solid 0.5px lightslategray;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+
+#login-submit {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#green-button {
+  height: 60px;
+  width: 340px;
+  background-color: green;
+  color: white;
+  border: solid 2px white;
+  border-radius: 10px;
+}
