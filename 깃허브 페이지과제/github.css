@@ -36,7 +36,7 @@ nav ul {
   padding: 5px;
 }
 
-#nav-sign li :hover {
+#nav-sign li:hover {
   color: skyblue;
 }
 
