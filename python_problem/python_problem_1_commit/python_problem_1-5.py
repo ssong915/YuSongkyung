@@ -24,9 +24,9 @@ num=0
 print_num=get_input()
 for i in range(print_num):
             num += 1
-            print('player A:', num)
+            print('playerA :', num)
 
 print_num=get_input()
 for  in range(print_num):
             num += 1
-            print('player B:', num)
+            print('playerB :', num)
