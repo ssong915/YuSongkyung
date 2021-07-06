@@ -22,11 +22,11 @@ def get_input():
 num=0
 
 print_num=get_input()
-for _ in range(print_num):
+for i in range(print_num):
             num += 1
             print('player A:', num)
 
 print_num=get_input()
-for _ in range(print_num):
+for i in range(print_num):
             num += 1
             print('player B:', num)
