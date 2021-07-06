@@ -26,7 +26,7 @@ while (1):
         print_num=get_input()
         for i in range(print_num):
                     num += 1
-                    print('player A:', num)
+                    print('playerA :', num)
                     if num==31:
                         break
         turn+=1
@@ -35,7 +35,7 @@ while (1):
         print_num=get_input()
         for i in range(print_num):
                     num += 1
-                    print('player B:', num)                    
+                    print('playerB :', num)                    
                     if num==31:
                         break
         turn+=1
@@ -43,5 +43,10 @@ while (1):
     if num==31:
         break
 
+
+if turn%2==1:
+    print("playerA win!")
+elif turn%2==0:
+    print("playerB win!")
 
     
