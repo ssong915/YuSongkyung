@@ -45,8 +45,8 @@ while (1):
 
 
 if turn%2==1:
-    print("playerA win!")
+    print("playerA  win!")
 elif turn%2==0:
-    print("playerB win!")
+    print("playerB  win!")
 
     
