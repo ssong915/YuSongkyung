@@ -19,12 +19,9 @@ def get_input():
 
     return input_num
 
-def print_player(print_num):
-    num = 0
-    while(num!=print_num):
-        print('player A:',num+1)
-        num+=1
-
+num=0
 
 print_num=get_input()
-print_player(print_num)
+for _ in range(print_num):
+            num += 1
+            print('player A:', num)

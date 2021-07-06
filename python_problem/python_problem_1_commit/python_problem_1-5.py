@@ -1,5 +1,6 @@
 import re
 
+num = 0
 
 def get_input():
     while(1):    
@@ -20,19 +21,19 @@ def get_input():
     return input_num
 
 def print_playerA(print_num):
-    num = 0
-    while(num!=print_num):
+    int=0
+    while(int!=print_num):
         print('player A:',num+1)
         num+=1
     
 def print_playerB(print_num):
-    num = 0
     while(num!=print_num):
         print('player B:',num+1)
         num+=1
 
-
-print_num=get_input()
-print_playerA(print_num)
-print_num=get_input()
-print_playerB(print_num)
+baskin=31
+while(1):
+    print_num=get_input()
+    print_playerA(print_num)
+    print_num=get_input()
+    print_playerB(print_num)
