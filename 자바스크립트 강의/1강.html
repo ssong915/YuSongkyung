@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="1강.css">
 </head>
 <body>
 
-
+<!--keycode.info-->
+<!--data-attribute : ex) data-key:div+audio-->
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -46,6 +47,7 @@
       <span class="sound">tink</span>
     </div>
   </div>
+  
 
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
@@ -58,6 +60,32 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  function playSound(e){
+    // console.log(e,keyCode)
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)  
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`) 
+    if(!audio) return; //stop the funcion from running all together
+    audio.currentTime = 0; // rewind to the start 계속 눌렀을 때 안느려짐
+    audio.play(); // play 만하면 계속 눌렀을 때 안나와
+    console.log(key)
+    key.classList.add("playing"); // ==key.addClass('playing')
+    //+remove,toggle 을 이용해서 css 넣기 빼기 ...
+  };
+
+  //없어지게하기 방법 1)setTimeout(function()) 쓰기
+  //방법 2)
+  function removeTransition(e){
+    if(e.propertyName != 'transform') return; // skip it if it's not a transform
+    this.classList.remove("playing")  
+    // this==key, key=>key playing =>key 
+  };
+
+  const keys = document.querySelectorAll('.key'); 
+  keys.forEach(key => key.addEventListener('transitionend',removeTransition));  
+  // type=transisitoned 인 애들
+
+  window.addEventListener('keydown',playSound); 
+  // keydown(키눌리면)=>playSound
 
 </script>
 
