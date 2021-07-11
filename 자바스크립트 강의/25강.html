@@ -42,6 +42,38 @@
 
 <button></button>
 <script>
+  //top down capture
+  //bubble up 
+
+  const divs = document.querySelectorAll('div');//모든 div
+  const button = document.querySelector('button')
+
+  function logText(e){
+    console.log(this.classList.value);
+    e.stopPropagation();
+    //parents로 bubble 하지말고 내가 선택한거만!    
+    //capture:true => 1/ 1/ 1
+    //captrue:false => 1/ 2/ 3 ::default
+  }
+
+  //document.body.addEventListener('click',logText);
+
+  divs.forEach(div => div.addEventListener("click", logText,{
+    //각 div를 돌며 click발생시 logText실행
+    capture:false,
+    //capture:true => 1/ 12/ 123
+    //captrue:false => 1/ 21/ 321 ::default
+
+    once:true
+    //==div.removeEventListener
+    //한번 이후 것들은 removeEventListener
+  }));
+
+  button.addEventListener('click',()=>{
+    console.log('Click!!!');
+  },{
+    once:true
+  })
 
 </script>
 </body>
