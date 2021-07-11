@@ -11,9 +11,8 @@
 
 ### 2주차
 🍪 0710
-01. 파이썬 과제
-02. python problem (1.py, 2.py)
-03. javascript 30
+01. python problem (1.py, 2.py)
+02. javascript 30
 
 🍪 0705
 01. javascript 30
