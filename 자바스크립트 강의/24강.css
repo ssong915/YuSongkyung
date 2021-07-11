@@ -25,6 +25,11 @@ body {
   transition: transform 0.5s;
 }
 
+/**/
+.fixed-nav .site-wrap{
+  transform:scale(1)
+}
+
 header {
   text-align: center;
   height: 50vh;
@@ -50,6 +55,11 @@ nav {
   z-index: 1;
 }
 
+.fixed-nav nav{
+  position:fixed;
+  box-shadow:0 5px rgba(0, 0, 0, 0.1);
+}
+
 nav ul {
   margin: 0;
   padding:0;
@@ -66,14 +76,18 @@ nav li {
 }
 
 li.logo {
-  max-width: 0;
+  max-width: 0; /*width로 하면 애니메이션 못함*/
   overflow: hidden;
   background: white;
-  transition: all .5s;
+  transition: all 1.5s;
   font-weight: 600;
   font-size: 30px;
 }
 
+.fixed-nav li.logo{ /*fixed-nav일때는 logo가 보이게*/
+  max-width:500px; 
+  /*width:auto로 하면 애니메이션 못함*/
+}
 li.logo a {
   color: black;
 }
