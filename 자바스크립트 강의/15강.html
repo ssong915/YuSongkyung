@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>LocalStorage</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="15강.css">
 </head>
 <body>
   <!--
@@ -28,7 +28,57 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  //저장된게 있으면 가져오기 or []
+  const items = JSON.parse(localStorage.getItem('items')) || [];
+
+  //1. item 추가
+  function addItem(e){
+    e.preventDefault();//데이터를 계속 유지
+
+    const text = (this.querySelector('[name=item]')).value;
+    const item = {
+      text,
+      done: false
+    }
+
+    items.push(item);//item받아서 items배열에 넣기
+    populateList(items, itemsList);
+
+    //localStorage 로컬저장소에 저장
+    //JSON.stringify => object를 문자열로
+    localStorage.setItem('items',JSON.stringify(items));
+    this.reset();
+  }
+  
+  //2. 화면에 출력
+  function populateList(plates = [], platesList){
+    platesList.innerHTML = plates.map((plate,i) => {
+      //HTML 고치기
+      return `
+      <li>
+        <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
+        <label for="item${i}"> ${plate.text}</label>
+      </li>
+      `;
+    }).join('');
+  };
+
+  //3.toggle 새로고침해도 그대로
+  //체크하면 done:false =>  done:true --> localStorage 저장
+  function toggleDone(e){
+    if(!e.target.matches("input")) return;
+    const el = e.target;
+    const index = el.dataset.index;
+    items[index].done = !items[index].done;//flip floping
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList)
+    
+  };
+
+
+  addItems.addEventListener('submit',addItem);  
+  itemsList.addEventListener('click',addItem);  
+  populateList(items,itemsList)
 
 </script>
 
