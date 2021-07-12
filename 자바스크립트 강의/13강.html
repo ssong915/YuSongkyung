@@ -43,6 +43,9 @@
   </div>
 
   <script>
+    //스크롤 내렸을 때 사진들 날라오는거 구현
+
+    //계ㅔ속 변경을 감지하지 않고 설정만큼 시간마다 변경 감지하게 해준다
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function() {
@@ -57,6 +60,37 @@
         if (callNow) func.apply(context, args);
       };
     }
+
+    //1.사진들 가져오기
+    const sliderImages = document.querySelectorAll('.slide-in');
+
+    //2.
+    function checkSlide(e){      
+      sliderImages.forEach(sliderImages=>{
+
+        //half way through the images 사진들어올 곳
+        const slideInAt=(window.scrollY+window.innerHeight)-sliderImages.height/2;
+        //스크롤한 만큼+화면길이 -사진/2
+
+        //bottom of the image 사진나갈 곳
+        const imageBottom= sliderImages.offsetTop +sliderImages.height;
+        //사진의 밑부분 = offsetTop:맨위로부터 사진탑이 어디에있는지 + 사진높이 
+
+        const isHalfShown= slideInAt > sliderImages.offsetTop;
+        //slideInAt > 사진의 맨위 
+        const isNotScrolledPast= window.scrollY < imageBottom;
+        //스크롤 내린만큼 < 사진의 맨밑
+
+        if(isHalfShown && isNotScrolledPast){
+          sliderImages.classList.add('active');
+        }
+        else{
+          sliderImages.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll',debounce(checkSlide));
 
   </script>
 
