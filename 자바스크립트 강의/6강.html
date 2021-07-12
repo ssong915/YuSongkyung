@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Type Ahead 👀</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="6강.css">
 </head>
 <body>
 
@@ -15,7 +15,56 @@
     </ul>
   </form>
 <script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+  //Ajax Type Ahead
+  //실시간으로 검색결과 보기
+  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+  //city 받아오기-fetch 사용
+  const cities=[];
+  fetch(endpoint)  
+    .then(blob => blob.json())
+    .then(data => cities.push(...data));
+
+  //입력한 문자와 state,city와 맞는게 있는지 찾기
+  function findMatches(wordToMatch,cites){
+    return cities.filter(place=>{
+      //here we need to figure out if the city on state matches 
+      //what was searched
+      const regex=new RegExp(wordToMatch,'gi')//gi: 대소문자 둘다 찾음
+      return place.city.match(regex) || place.state.match(regex)
+    });
+  }
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+
+  function displayMatches(){
+    const matchArray = findMatches(this.value, cities);
+    //matchArray에 같은거 결과값 담기
+    const html=matchArray.map(place=>{
+      //replace:: html에서 span->hl에 위치한 넘 문자열로 반환해줌       
+      const regex=new RegExp(this.value,'gi');
+      const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+      const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+      return`
+      <li>
+        <span class="name"> ${cityName}, ${stateName}</span>
+        <span class="population">${numberWithCommas(place.population)}</span>
+      </li>
+        `;
+    }).join('');
+    suggestions.innerHTML=html;
+  }
+
+  const searchInput = document.querySelector(".search")
+  const suggestions = document.querySelector(".suggestions");
+
+  searchInput.addEventListener("change", displayMatches);
+  searchInput.addEventListener("keyup", displayMatches); //keyup: 키 뗄 때마다
+
+
 
 </script>
 </body>
