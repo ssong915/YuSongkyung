@@ -18,4 +18,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #장고는 admin/로 시작하는 모든 URL을 view와 대조해 찾아냅니다. 무수히 많은 URL이 admin URL에 포함될 수 있어 일일이 모두 쓸 수 없답니다. 
+    #그래서 정규표현식을 사용합니다.
+    path('', include('blog.urls')),
 ]
