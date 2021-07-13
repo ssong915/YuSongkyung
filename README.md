@@ -10,9 +10,13 @@
 01. Bootstrap 과제
 
 ### 2주차
-🍪 0710
+🍪 0706
 01. python problem (1.py, 2.py)
-02. javascript 30
 
-🍪 0705
+🍪 0710
 01. javascript 30
+
+### 3주차
+🍪 0713
+01. djangogirls
+
