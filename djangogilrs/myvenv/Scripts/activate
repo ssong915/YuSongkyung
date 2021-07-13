@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\yysk_\Desktop\겅부\피로그래밍\과제제출\djangogilrs\djangogirls\myvenv"
+VIRTUAL_ENV="C:\Users\yysk_\Desktop\겅부\피로그래밍\과제제출\djangogilrs\myvenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
