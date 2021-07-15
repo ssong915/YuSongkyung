@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'askcompany.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'askcompany.settings') #진입점 (더 추가하고싶다면 그대로 (+import django) 다른 곳에도 선언가능)
 
 application = get_wsgi_application()
