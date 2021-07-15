@@ -50,6 +50,7 @@ def brGame():
     elif turn%2==0:
         print("player  win!")
 
+
 brGame()
 
     
