@@ -1,6 +1,6 @@
 from django.db import models
 class Item(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100) #validators로 최소길이라던지 여러 제한을 놓을 수 있음
     desc = models.TextField(blank=True) #blank=True: 빈칸도 허용함 (default: False)
     price = models.PositiveIntegerField(default="") #양수 받아오기
     is_publish = models.BooleanField(default=False) #날짜+시간 #첨 추가
