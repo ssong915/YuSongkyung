@@ -1,12 +1,11 @@
 {%extends "shop/layout.html"%} <!--겹치는부분 있는곳-->
 
-{%block content%}
-{%block super%} <!-- 부모에 있는 거도 나오게 해준다 , 원랜 덮어씀-->
+{% block content %}
     <form action="" method="GET">
         <input type="text" name="q" value="{{q}}">
         <input type="submit" value="search">
-    </form>
-    
+    </form>    
+    <!--{%block super%} 부모에 있는 거도 나오게 해준다 , 원랜 덮어씀-->
     <ul>
         {%for item in item_list%}
             <li>
@@ -18,4 +17,5 @@
             </li>
         {% endfor %}  
     </ul>
-{%endblock%}
+    {% endblock %} 
+    {% endblock %} 

@@ -1,4 +1,5 @@
 <!--겹치는넘-->
+{%load static%} <!--모든 템플릿에 해주기-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +10,19 @@
     <style>
         body{background-color:lightblue}
     </style>
-    {%block extra_heaD%}{% endblock %}
+    <link rel="stylesheet" href="{%static "main.css" %}"/>
+    {%block extra_head%}{% endblock %} <!--css-->
 </head>
 <body>
     <h1>Ask Company</h1>
 
     <!--겹치지않는넘 block으로 구분-->
     {%block content%}
-    {%endblock%}}
+    {%endblock%}
 
     &copy; 2018.AskCompany
-    {%block extra_body%}{% endblock %}
+    
+    <script src="{%static "main.js" %}"/>
+    {%block extra_body%}{% endblock %} 
 </body>
 </html>
