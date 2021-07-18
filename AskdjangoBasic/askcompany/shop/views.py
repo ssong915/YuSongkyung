@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse, request
 from .models import Item
 ## 주요request 속성
@@ -18,5 +18,8 @@ def item_list(request):
         'item_list':qs,
     })
 
+def item_detail(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    return render(request, "shop/item_detail.html", {"item": item}) 
 
 

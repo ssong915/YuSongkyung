@@ -1,10 +1,21 @@
+{%extends "shop/layout.html"%} <!--겹치는부분 있는곳-->
 
-<ul>
-    {%for item in item_list%}
-        <li>
-            {{item.name}}
-            {{item.price}}
-            {{item.desc}}
-        </li>
-    {% endfor %}  
-</ul>
+{%block content%}
+{%block super%} <!-- 부모에 있는 거도 나오게 해준다 , 원랜 덮어씀-->
+    <form action="" method="GET">
+        <input type="text" name="q" value="{{q}}">
+        <input type="submit" value="search">
+    </form>
+    
+    <ul>
+        {%for item in item_list%}
+            <li>
+                <a href="/shop/{{item.pk}}/">
+                    {{item.name}}
+                </a>                
+                {{item.price}}
+                {{item.desc}}
+            </li>
+        {% endfor %}  
+    </ul>
+{%endblock%}
