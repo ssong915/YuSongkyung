@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from askcompany.utils import uuid_upload_to
+from django.urls import reverse
 class Item(models.Model):
     name = models.CharField(max_length=100) #validators로 최소길이라던지 여러 제한을 놓을 수 있음
     desc = models.TextField(blank=True) #blank=True: 빈칸도 허용함 (default: False)
@@ -14,6 +15,9 @@ class Item(models.Model):
         # return self.name
         # return '<{}> {}'.format(self.pk, self.name)
         return f'<{self.pk}> {self.name}'
+
+    def get_absolute_url(self):
+        return reverse('shop:item_detail',args=[self.pk])
 
 class Post(models.Model):
     author=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE) #related_name이름 충돌
