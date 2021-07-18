@@ -1,7 +1,9 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse, request
+from django.views.generic import CreateView, UpdateView
 from .models import Item
 import re
+from .forms import ItemForm
 ## 주요request 속성
 # request.method: GET,POST 요청인지 알려줌
 # request.META: META정보(요청 header포함)
@@ -24,73 +26,27 @@ def item_detail(request, pk):
     return render(request, "shop/item_detail.html", {"item": item}) 
 
 
-def item_new(request, item=None):
-    error_list = []
-    initial = {}
+# def item_new(request, item=None):
+#     if request.method=='POST':
+#         form=ItemForm(request.POST,request.FILES,instance=item)
+#         if form.is_valid():
+#             item=form.save()
+#             return redirect(item)
+#     else:
+#         form=ItemForm(instance=item)
 
-    if request.method == 'POST':
-        data = request.POST
-        files = request.FILES
-
-        name = data.get('name')
-        desc = data.get('desc')
-        price = data.get('price')
-        photo = files.get('photo')
-        is_published = data.get('is_published') in (True, 't', 'True', '1')
-
-        # 유효성 검사
-        if len(name) < 5:
-            error_list.append('name을 5글자 이상 입력해주세요.')
-
-        if re.match(r'^[\da-zA-Z\s]+$', desc):
-            error_list.append('한글을 입력해주세요.')
-
-        if not error_list:
-            # 저장 시도
-            if item is None:
-                item = Item()
-
-            item.name = name
-            item.desc = desc
-            item.price = price
-            item.is_published = is_published
-
-            if photo:
-                item.photo.save(photo.name, photo, save=False)
-
-            try:
-                item.save()
-            except Exception as e:
-                error_list.append(e)
-            else:
-                return redirect(item)  # item.get_absolute_url()이 호출됨.
-
-        initial = {
-            'name': name,
-            'desc': desc,
-            'price': price,
-            'photo': photo,
-            'is_published': is_published,
-        }
-    else:
-        if item is not None:
-            initial = {
-                'name': item.name,
-                'desc': item.desc,
-                'price': item.price,
-                'photo': item.photo,
-                #'is_published': item.is_published,
-            }
-
-    return render(request, 'shop/item_form.html', {
-        'error_list': error_list,
-        'initial': initial,
-    })
+#     return render(request, 'shop/item_form.html', {
+#         'form':form,
+#     })
+# =======>
+item_new = CreateView.as_view(model=Item, form_class=ItemForm)
 
 
-def item_edit(request, pk):
-    item = get_object_or_404(Item, pk=pk)
-    return item_new(request, item)
+# def item_edit(request, pk):
+#     item = get_object_or_404(Item, pk=pk)
+#     return item_new(request, item)
+# ======>
 
+item_edit = UpdateView.as_view(model=Item, form_class=ItemForm)
 
 

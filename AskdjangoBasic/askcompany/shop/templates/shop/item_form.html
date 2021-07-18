@@ -9,7 +9,7 @@
         <div class="container">
             <div class="col-sm-12">
                 <h2>New Item</h2>
-                {% if error_list %}
+                <!-- {% if error_list %}
                     <div class="alert alert-danger">
                         error_list: {{ error_list }}
                     </div>
@@ -18,10 +18,10 @@
                     <div class="alert alert-info">
                         initial: {{ initial }}
                     </div>
-                {% endif %}
+                {% endif %} -->
                 <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
                     {% csrf_token %}
-                    <table class="table table-bordered">
+                    <!-- <table class="table table-bordered">
                         <tbody>
                             <tr>
                                 <th>name</th>
@@ -54,7 +54,11 @@
                                 </td>
                             </tr>
                         </tbody>
+                    </table> -->
+                    <table class="table table-bordered">                    
+                        {{form.as_table}}
                     </table>
+                    
                     <input type="submit" value="저장하기" class="btn btn-primary" />
                 </form>
             </div>
