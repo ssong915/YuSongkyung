@@ -10,8 +10,9 @@
     <style>
         body{background-color:lightblue}
     </style>
-    <link rel="stylesheet" href="{%static "main.css" %}"/>
-    {%block extra_head%}{% endblock %} <!--css-->
+    {%block extra_head%}
+    <link rel="stylesheet" href="{%fresh_static "main.css" %}"/>
+    {% endblock %} <!--css-->
 </head>
 <body>
     <h1>Ask Company</h1>
@@ -22,7 +23,8 @@
 
     &copy; 2018.AskCompany
     
+    {%block extra_body%}
     <script src="{%static "main.js" %}"/>
-    {%block extra_body%}{% endblock %} 
+    {% endblock %} 
 </body>
 </html>
