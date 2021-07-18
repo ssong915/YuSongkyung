@@ -14,4 +14,6 @@ urlpatterns = [
     path('achieve/<yyyy:year>/',views.achieve_year),
     path('',views.item_list,name='item_list'),
     path("<int:pk>/", views.item_detail,name='item_detail'),
+    path('<int:pk>/edit/', views.item_edit, name='item_edit'),
+    path('new/',views.item_new,name='item_new'),
 ]
