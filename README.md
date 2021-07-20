@@ -16,3 +16,6 @@
 * djangogirls
 * askcompany django 기초
 * askcompany django 
+
+### 4주차:dizzy:
+* 
