@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Post
 from .forms import PostForm
+import tools.models
 
 
 def idea_list(request):
