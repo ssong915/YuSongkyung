@@ -5,13 +5,19 @@
     <p>나의 아이디어를 잊지 말고 기록해보세요.</p>
 
     {%for idea in ideas%}  
+        {% if idea.image %}
         <p><img src="{{idea.image.url}}" alt=""></p>
-    <h2>        
-        <a href="{%url 'ideas:idea_detail' idea.id%}"> {{idea.title}} </a>
-    </h2>
-    <br>
-    <h4>예상 개발툴: {{idea.devtool}}</h4>
-    <h4>아이디어 관심도: {{idea.interest}}</h4>
+        {% else %}
+        <p></p>
+        {% endif %}
+
+        <h2>        
+            <a href="{%url 'ideas:idea_detail' idea.id%}"> {{idea.title}} </a>
+        </h2>
+        <br>
+        <h4>예상 개발툴: {{idea.devtool}}</h4>
+        <h4>아이디어 관심도: {{idea.interest}}</h4>
+        <hr/>
     {%endfor%}
 
 {%endblock%}

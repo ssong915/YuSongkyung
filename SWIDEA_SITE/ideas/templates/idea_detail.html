@@ -6,9 +6,13 @@
 
     <h1>{{ideas.title}}</h1>
     <ol>
+        {% if ideas.image %}
         <p><img src="{{ideas.image.url}}" alt=""></p>
-        <li>아이디어 관심도: {{ideas.title}}</li>
-        <li>예상 개발툴:{{ideas.devtool}} </li>
+        {% else %}
+        <p></p>
+        {% endif %}
+        <li>아이디어 관심도: {{ideas.interest}}</li>
+        <li>예상 개발툴: <a href="{% url 'ideas:idea_update' ideas.id %}">{{ideas.devtool}}</a> </li>
         
         <li>아이디어 설명: {{ideas.content}}</li>
     </ol>

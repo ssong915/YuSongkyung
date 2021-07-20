@@ -10,5 +10,6 @@ urlpatterns = [
 
     path('',include ('ideas.urls'),name='ideas'),
     path('tools/',include ('tools.urls'),name='tools'),
+
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

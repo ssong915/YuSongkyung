@@ -20,7 +20,7 @@ def tool_create(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post=form.save()
-            return redirect('tools:tool_list')
+            return redirect('tools:tool_detail',post.pk)
             
     else: #get 
         form=PostForm
