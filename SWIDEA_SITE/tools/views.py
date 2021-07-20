@@ -2,7 +2,6 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .models import Post
 from .forms import PostForm
 
-
 def tool_list(request):
     tools = Post.objects.all()
     ctx={'tools':tools}
