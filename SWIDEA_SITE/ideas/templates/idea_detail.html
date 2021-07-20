@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{%block content%}
+    <h1>Idea Detail</h1>
+    <p>아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요.</p>
+
+    <h1>{{ideas.title}}</h1>
+    <ol>
+        <p><img src="{{ideas.image.url}}" alt=""></p>
+        <li>아이디어 관심도: {{ideas.title}}</li>
+        <li>예상 개발툴: {{ideas.devtool}}</li>
+        <li>아이디어 설명: {{ideas.content}}</li>
+    </ol>
+    <!--ideas앱의 list url로 이동-->
+
+    <!--수정하기 일때 상황-->
+    <!--id를 가지고 ideas앱의 update url로 이동-->
+    <a href="{% url 'ideas:idea_update' ideas.id %}">수정</a>
+    <a href="{% url 'ideas:idea_list' %}">목록</a>
+    <a href="{% url 'ideas:idea_delete' ideas.id %}">삭제</a>    
+{%endblock%}

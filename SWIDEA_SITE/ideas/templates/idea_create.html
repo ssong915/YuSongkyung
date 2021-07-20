@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+    <h1>Idea Register</h1>
+    <p>아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요!</p>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <table>
+            {{form.as_table}}
+        </table>
+
+        <input type="submit" value="SUBMIT">
+    </form>
+
+{%endblock%}
