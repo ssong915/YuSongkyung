@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+{%block content%}
+    <h1>DevTool Detail</h1>
+    <p>r개발툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해 보아요.</p>
+
+    <h1>{{tools.title}}</h1>
+    <ol>
+        <li>종류 {{tools.kind}}</li>
+        <li>설명: {{tools.description}}</li>
+    </ol>
+    <!--tools앱의 list url로 이동-->
+
+    <!--수정하기 일때 상황-->
+    <!--id를 가지고 tools앱의 update url로 이동-->
+    <a href="{% url 'tools:tool_update' tools.id %}">수정</a>
+    <a href="{% url 'tools:tool_list' %}">목록</a>
+    <a href="{% url 'tools:tool_delete' tools.id %}">삭제</a>    
+{%endblock%}

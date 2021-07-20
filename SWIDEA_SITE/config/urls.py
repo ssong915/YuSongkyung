@@ -9,6 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('',include ('ideas.urls'),name='ideas'),
-    #path('tools/',include ('tools.urls'),name='tools'),
+    path('tools/',include ('tools.urls'),name='tools'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
