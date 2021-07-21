@@ -1,7 +1,5 @@
 from django.contrib import admin
 from .models import Post
-
-
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ['id','title'] #id,제목 보여주소

@@ -1,19 +1,31 @@
 {% extends 'base.html'%}
 
-{%block content%}
-    <h1>DevTool Detail</h1>
-    <p>r개발툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해 보아요.</p>
+{%block content%}    
+    <div class="text-center" style="padding-top: 15px;">
+        <h1>DevTool Detail</h1>
+        <p>r개발툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해 보아요.</p>
+    </div>
 
-    <h1>{{tools.title}}</h1>
-    <ol>
-        <li>종류 {{tools.kind}}</li>
-        <li>설명: {{tools.description}}</li>
-    </ol>
-    <!--tools앱의 list url로 이동-->
+    <div class="container">
+    <div class="row">
+        <h2 style="color: #760c0c">{{tools.title}}</h2>
+        <div style="border-top:2px solid #F8F9FA; padding:5px; ">
+            <p>종류 {{tools.kind}}</p>
+            <p>설명: {{tools.description}}</p>
+        </div>
+                
+        <div>
+            <h3>만들수 있는 SW 목록</h3>
+            {% for idea in ideas %}
+                <a href = '{% url "ideas:idea_detail" idea.id %}'>{{idea.title}}</a>
+            {% endfor %}
+        </div>
 
-    <!--수정하기 일때 상황-->
-    <!--id를 가지고 tools앱의 update url로 이동-->
-    <a href="{% url 'tools:tool_update' tools.id %}">수정</a>
-    <a href="{% url 'tools:tool_list' %}">목록</a>
-    <a href="{% url 'tools:tool_delete' tools.id %}">삭제</a>    
+        <div class="text-center">
+            <a href="{% url 'tools:tool_update' tools.id %}">수정</a>
+            <a href="{% url 'tools:tool_list' %}">목록</a>
+            <a href="{% url 'tools:tool_delete' tools.id %}">삭제</a>  
+        </div>  
+    </div>     
+    </div>
 {%endblock%}

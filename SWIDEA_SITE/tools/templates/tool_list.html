@@ -1,16 +1,25 @@
 {% extends 'base.html'%}
 
 {%block content%}
-    <h1>DevTool List</h1>
-    <p>개발툴 목록 페이지 입니다. 자신이 사용가능한 개발툴의 목록을 확인해 보아요.</p>
-
+    <div class="text-center" style="padding-top: 15px;">
+        <h1>DevTool List</h1>
+        <p>개발툴 목록 페이지 입니다. 자신이 사용가능한 개발툴의 목록을 확인해 보아요.</p>
+    </div>
+    
+    <div class='row'style="justify-content: space-evenly;">
     {%for tool in tools%}  
-    <h2>        
-        <a href="{%url 'tools:tool_detail' tool.id%}"> {{tool.title}} </a>
-    </h2>
-    <br>
-    <h4>종류: {{tool.kind}}</h4>
-    <h4>설명: {{tool.description}}</h4>
+        <div class='col-sm-3' style="background-color:#F8F9FA; border-radius:5px ;margin:5px; padding:10px;">
+            
+            <div style="border-bottom:2px solid white;">
+            <h3>        
+                <a href="{%url 'tools:tool_detail' tool.id%}" style="color: #760c0c"> {{tool.title}} </a>
+            </h3>
+            </div>
+            <br>
+            <p>종류: {{tool.kind}}</p>
+            <p>설명: {{tool.description}}</p>   
+        </div>
     {%endfor%}
+    </div>
 
 {%endblock%}

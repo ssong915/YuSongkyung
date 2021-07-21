@@ -16,13 +16,13 @@ def tool_detail(request,pk):
     return render(request,'tool_detail.html.',context=ctx)
 
 def tool_create(request):
-    if request.method =='POST': #post-저장하기 눌렀을때, 생성하고, 수정할때
+    if request.method =='POST':
         form = PostForm(request.POST)
         if form.is_valid():
             post=form.save()
             return redirect('tools:tool_detail',post.pk)
             
-    else: #get 
+    else:
         form=PostForm
         ctx={'form':form}
 
@@ -37,7 +37,7 @@ def tool_update(request,pk):
         if form.is_valid():
             post=form.save()
             return redirect('tools:tool_detail',pk)
-    else: #get 
+    else:
         form=PostForm(instance=post)
         ctx={'form':form} 
         return render(request,template_name='tool_create_update.html',context=ctx)
