@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Pirostagram</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-light">
+        <div class="row" style="align-items: center; justify-content: flex-end;">
+            <div class="col-6 text-center">
+                <a href="{% url 'blog:post_list' %}" class="btn btn-lg">Pirostagram</a>
+            </div>
+            <div class="col-3" style="float: right;">
+                <a href="{% url 'blog:post_create' %}" class="btn btn-sm">게시물 작성</a>
+            </div>
+        </div>
+    </nav>
+ 
+    {% block content %}
+    {% endblock %}
+    
+    {% block extra %}
+    {% endblock %}
+
+
+</body>
+</html>
