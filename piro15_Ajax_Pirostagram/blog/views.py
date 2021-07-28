@@ -50,13 +50,10 @@ def create_ajax(request):
     comment = req['comment']
 
     post=Post.objects.get(id=post_id)
-    created_comment = Comment.objects.create(post=post, comment=comment)
+    newComment = Comment.objects.create(post=post, comment=comment)
+    newComment.save()
 
-    created_comment.save()
-    post.save()
-
-    return JsonResponse({'id': post_id, 'comment_id': created_comment.id, 'comment': created_comment.comment })
-
+    return JsonResponse({'id': post_id, 'comment': comment })
     
 
 @csrf_exempt

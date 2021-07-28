@@ -36,10 +36,10 @@
                     
                         <p style="margin:0;">댓글</p>
                         <hr style="margin-top:8px;">
-                    <div class="comment_{{ post.id }}"> <!--댓글 삭제-->
+                    <div class="commentlist"> <!--댓글 삭제-->
                         {% for comment in comments %}
                             {% if comment.post == post %}
-                            <div class="comment-id-{{ comment.id }}" style="margin: 10px ;">
+                            <div class="comment-id-{{ comment.id }}" style="margin-top: 10px ;">
                                 {{ comment.comment }}
                                 <button class="btn btn-primary btn-sm" onclick="onClickDelete({{comment.id}})" style="float: right;">삭제</button>
                             </div>
@@ -48,10 +48,11 @@
                         {% endfor %}    
                     </div>   
                     <hr>
-                    <!--댓글 달기-->    
-                    <input class="create-comment" type="text" placeholder="댓글">
-                    <button class="btn btn-primary btn-sm" onclick="onClickCreate({{ post.id }})">게시</button>
-                    
+                    <!--댓글 달기-->  
+                    <div>
+                        <input class="create-comment" type="text" placeholder="댓글">
+                        <button class="btn btn-primary btn-sm" onclick="onClickCreate({{ post.id }})""  style="float: right;">게시</button>
+                    </div>  
                     <hr>
                 </div>
                 
@@ -115,16 +116,16 @@
     
     const CreateHandleResponse=()=>{
         if(requestComment.status<400){
-            const {post_id}=JSON.parse(requestComment.response);
-            const {comment_id}=JSON.parse(requestComment.response);
+            const {id}=JSON.parse(requestComment.response);
             const {comment}=JSON.parse(requestComment.response);
-            const element=document.querySelector(`.post_${post_id} .comment_${ post_id }`);
-            element.innerHTML=`  
+            const commentlist=document.querySelector(`.post_${post_id} .commentlist`);
+            commentlist.innerHTML+=`  
             <div class="comment-id-${ comment.id }">
                 ${comment}
                 <button class="btn btn-primary btn-sm" onclick="onClickDelete(${comment.id})">삭제</button>
             </div>
             <hr> `;
+            
         }
     }
     requestLike.onreadystatechange=()=>{
