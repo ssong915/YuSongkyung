@@ -49,8 +49,8 @@
                     </div>   
                     <hr>
                     <!--댓글 달기-->  
-                    <div>
-                        <input class="create-comment" type="text" placeholder="댓글">
+                    <div  style="display: flex; align-items: center; justify-content: space-between;" >
+                        <input class="create-comment" type="text" placeholder="댓글"  style="float: left;">
                         <button class="btn btn-primary btn-sm" onclick="onClickCreate({{ post.id }})""  style="float: right;">게시</button>
                     </div>  
                     <hr>
@@ -118,19 +118,19 @@
         if(requestComment.status<400){
             const {id}=JSON.parse(requestComment.response);
             const {comment}=JSON.parse(requestComment.response);
-            const commentlist=document.querySelector(`.post_${post_id} .commentlist`);
+            const commentlist=document.querySelector(`.post_${id} .commentlist`);
             commentlist.innerHTML+=`  
             <div class="comment-id-${ comment.id }">
                 ${comment}
-                <button class="btn btn-primary btn-sm" onclick="onClickDelete(${comment.id})">삭제</button>
+                <button class="btn btn-primary btn-sm" onclick="onClickDelete(${comment.id})" style="float: right;">삭제</button>
             </div>
             <hr> `;
             
         }
     }
-    requestLike.onreadystatechange=()=>{
-        if(requestLike.readyState===XMLHttpRequest.DONE){
-            likeHandleResponse();
+    requestComment.onreadystatechange=()=>{
+        if(requestComment.readyState===XMLHttpRequest.DONE){
+            CreateHandleResponse();
         }
     }
     //댓글 삭제

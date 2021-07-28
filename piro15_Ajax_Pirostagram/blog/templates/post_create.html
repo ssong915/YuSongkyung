@@ -1,14 +1,20 @@
 {% extends 'base.html'%}
 {%block content%}
 
-    <div class="container">
+    <div class="container" style="display: flex; justify-content: center; ">
     <form action="" method="post" enctype="multipart/form-data">
         {%csrf_token%}
-        <table>
-            {{form.as_table}}
-        </table>
-        <br>
-        <input type="submit" value="SUBMIT">
+        <div style="border: 1px solid lightgray; border-radius: 20px; width: 25%px; margin: 50px; padding: 30px; ">
+            
+            Title :
+            <p> {{form.title}}</p>
+            Content : 
+            <p> {{form.content}}</p>
+            Image : 
+            <p>{{form.image}}</p>
+            <input type="submit" value="POST">
+            
+        </div>
     </form>
     </div>
 
