@@ -18,4 +18,5 @@
 * askcompany django : 장고 예제 
 
 ### 4주차:dizzy:
-* 
+* SWIDEA_SITE : 장고 CRUD 연습 
+* Pirostagram 사이트 : ajax를 사용한 pirostagram 사이트 제작
