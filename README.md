@@ -17,4 +17,4 @@
 
 ### 4주차:dizzy:
 * SWIDEA_SITE : 장고 CRUD 연습사이트
-* Pirostagram 사이트 : ajax를 사용한 pirostagram 사이트 제작
+* Pirostagram 사이트 : ajax를 사용한 댓글, 좋아요 기능 연습
